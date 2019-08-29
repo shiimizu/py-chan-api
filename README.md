@@ -28,12 +28,25 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 |❔ warosu|
 |❔ yuki.la |
 
+### API Documentation
+
+#### 4chan
+* [`4chan.org` API (with examples)](https://github.com/catamphetamine/captchan/blob/master/docs/4chan.org.md)
+* [`4chan.org` API (brief official docs)](https://github.com/4chan/4chan-API)
+
+#### FFuuka
+* [`github doc`](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
+* [`readthedocs`](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
+* [`rest api`](https://4plebs.texh/foolfuuka)
+
+---
+
 ### Installation
 ```python
 pip install py-chan-api             # NOTE: Only Python 3.7+
 
 # Or with virtualenv
-pip install virtualenv              # Install virtualenv if you havent already
+pip install virtualenv              # Install virtualenv if you haven't already
 virtualenv venv                     # Create a virtualenv
 source venv/bin/activate            # Activate it
 pip install -r requirements.txt     # Install required modules
@@ -47,18 +60,21 @@ import pychan
 # pychan infers what type of object you're giving it. See the above table.
 # Whether its a string pointing to a file/dict/dict in string format.
 
-thread          = pychan.FourChan("thread.json")
-post            = thread.posts[0]
 threadIndex     = pychan.FourChan("thread_index.json")
 board           = pychan.FourChan("boards.json")
 thread          = pychan.FourChan("thread.json")
 threadList      = pychan.FourChan("thread_list.json")
 archivedThread  = pychan.FourChan("archived_threads.json")
+post            = thread.posts[0]
 
 print(thread.posts[0].com)              # Get the first post and its comment
 
 print(post)                             # If you're unsure of what fields to call
                                         # just print the object itself to see a list of key/values
+
+# Or see the type of the unknown object
+print(type(pychan.FourChan("unknown.json")))
+
 print(thread.posts[0])
 print(threadIndex.threads[0].posts[1])
 print(board.trollflags.AC)
@@ -95,7 +111,7 @@ Pull requests are welcome.
 Feel free to ping shiimizu @ this [Matrix](https://matrix.to/#/#bibanon-chat:matrix.org) server.
 
 
-### ⚠️ Polling (`archiving`)
+### ⚠️ Polling (archiving)
 - Archiving capabilities are beyond the scope of this project.
 - Please see ➡️
   - [`eve`](https://github.com/bibanon/eve)
