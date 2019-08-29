@@ -25,8 +25,8 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 |**Extra Imageboards** | Compatibility |
 |-------------------------------|----------|
 |✔️ [FFuuka](https://archive.4plebs.org/_/articles/credits/#archives)|  `Thread`, `Post` |
-|:grey_question: warosu|
-|:grey_question: yuki.la |
+|❔ warosu|
+|❔ yuki.la |
 
 ### Installation
 ```python
