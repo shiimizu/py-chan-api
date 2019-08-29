@@ -42,7 +42,7 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 ---
 
 ### Installation
-```python
+```bash
 pip install py-chan-api             # NOTE: Only Python 3.7+
 
 # Or with virtualenv
