@@ -8,15 +8,7 @@
 
 ### Why?
 I have a lot of threads archived in a plaintext list of links for educational purposes. With the advent of archiving sites cracking down, I realized that it won't always be here and I'd need to save it locally. Later on, it reminded me that not just these need to be archived but everything else on the internet that I value.
-```python
-Single thread: 'posts'
-Thread index: 'threads'
-Board List: 'boards'
-Board Catalog: 'page'
-Thread list: 'post'
-Archived Threads: [list of numbers]
-Single post: Non existant
-```
+
 ### Supports:
 |   Feature                     |                        Source                             |
 |-------------------------------|-----------------------------------------------------------|
