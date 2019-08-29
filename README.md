@@ -31,7 +31,7 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 
 ```python
 # pychan would infer what type of json you're giving it. See the above table.
-# whether its a string/string pointing to a file/dict
+# whether its a string pointing to a file/dict/dict in string format
 
 post = pychan(thread.posts[0])
 thread = pychan("thread.json")
