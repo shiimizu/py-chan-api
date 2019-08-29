@@ -3,8 +3,7 @@
 ### Objective:
 - **Unify:** Convert other imageboards to the 4chan api in JSON format
 - **Wrapper:** Parse the JSON to programming-language-specific data structures
-- **Extra:** Ability to download JSON + media (`--oneshot`)
-    - Which would include handling the rate limit
+- **Extra:** Ability to download JSON + media
 
 ### Why?
 I have a lot of threads archived in a plaintext list of links for educational purposes. With the advent of archiving sites cracking down, I realized that it won't always be here and I'd need to save it locally. Later on, it reminded me that not just these need to be archived but everything else on the internet that I value.
