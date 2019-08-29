@@ -97,7 +97,7 @@ Feel free to ping shiimizu @ this [Matrix](https://matrix.to/#/#bibanon-chat:mat
 
 ### ⚠️ Polling (`archiving`)
 - Archiving capabilities are beyond the scope of this project.
-- Please see :arrow_right:
+- Please see ➡️
   - [`eve`](https://github.com/bibanon/eve)
   - [`hayden`](https://github.com/bbepis/Hayden)
   - [`basc-archiver`](https://github.com/bibanon/BASC-Archiver)
