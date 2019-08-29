@@ -14,9 +14,9 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 |   ✔️ Single thread             |`a.4cdn.org/{board}/thread/{threadnumber}.json`            |
 |   ✔️ Thread index                |`a.4cdn.org/{board}/{pagenumber}.json` (threads @ pg #)    |
 |   ✔️ Board list                  |`a.4cdn.org/boards.json`                                   |
-|    Board catalog             |`a.4cdn.org/{board}/catalog.json`                          |
-|   Thread list                 |`a.4cdn.org/{board}/threads.json`                          |
-|   Archived threads            |`a.4cdn.org/{board}/archive.json`                          |
+|   ✔️ Board catalog             |`a.4cdn.org/{board}/catalog.json`                          |
+|   ✔️ Thread list                 |`a.4cdn.org/{board}/threads.json`                          |
+|  ✔️ Archived threads            |`a.4cdn.org/{board}/archive.json`                          |
 |  ⚠️ HTTPS                       |On by default in `urllib3`                                 |
 |  ⚠️ Rate limiting               |`x` requests allowed in `n` seconds                        |
 |  ⚠️ `If-Modified-Since`         |`req.headers['last-modified']`                             |
