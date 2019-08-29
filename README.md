@@ -38,8 +38,8 @@ threadIndex = pychan("thread_index.json")
 board = pychan("boards.json")
 thread = pychan("thread.json")
 
-print(thread)                       # Print to see what keys you can call
-print(thread.posts[0].com)          # Get the first post and its comment
+print(thread)                           # Print to see what keys you can call
+print(thread.posts[0].com)              # Get the first post and its comment
 
 
 ###### [REDACTED] ######
@@ -47,7 +47,7 @@ catalog = <UNDER CONSTRUCTION>
 ```
 ### Converting
 ```python
-thread = pychan.Fuuka("thread.json")    # Just use the imageboard implentation
+thread = pychan.Fuuka("thread.json")    # Just use the imageboard implementation
 ```
 
 ### Todo
