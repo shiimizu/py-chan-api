@@ -30,7 +30,7 @@ setup(
     keywords='4chan api imageboard',
     packages=find_packages(exclude=['tests', 'test_json']),
     python_requires='>=3.7, <4',
-    install_requires=['bigjson'],
+    install_requires=['bigjson','psutil'],
     package_data={
         '': ['README.md','LICENSE'],
     },
