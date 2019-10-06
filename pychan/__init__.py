@@ -4,4 +4,4 @@ from __future__ import print_function
 from .fourchan import FourChan
 from .fuuka import Fuuka
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'

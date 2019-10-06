@@ -5,7 +5,7 @@ import json
 import time
 import re
 import copy
-import psutil
+#import psutil
 import gc
 import time
 import multiprocessing as mp
@@ -17,7 +17,7 @@ from .fourchan import FourChan
 #   db = {"posts": [{"bumplimit": 0, "ext": ".jpg"},{"bumplimit": 1, "ext": ".png"}]}
 #   print(json.dumps(db,sort_keys=True,indent=4))
 
-process = psutil.Process(os.getpid())
+#process = psutil.Process(os.getpid())
 debug = False # {True: "For useful logging", False: "To sit back and relax"}
 
 ls = ['desu_thread.json','nyafuu_thread.json','desu_onepiece_thread.json']
@@ -66,7 +66,7 @@ def measure(method, input=ls[0], output=outs[0]):
     else:
         method()
     gc.collect()
-    print("--- [END] Total: {} ms ---\n".format(float((time.time() - start)*1000)))
+    #print("--- [END] Total: {} ms ---\n".format(float((time.time() - start)*1000)))
     
 def sequential(inputs, outputs):
     if debug:
@@ -78,10 +78,10 @@ def sequential(inputs, outputs):
     return ls[0] if len(ls) == 1 else ls
 
 def multiprocess(inputs, outputs):
+    ls = []
     if debug:
         if len(ls) != len(outs): return print(f"[ERROR]: List of inputs must have the same size as list of outputs.\n")
         print("[MULTIPROCESSING]\n")
-    ls = []
     with concurrent.futures.ProcessPoolExecutor() as executor:
         for number, prime in zip(inputs, executor.map(pjson,inputs,outputs)):
             ls.append(prime)
@@ -89,22 +89,31 @@ def multiprocess(inputs, outputs):
             #print( number, prime)
     return ls[0] if len(ls) == 1 else ls
 
+
 def pjson(input,output):
     """Process to JSON"""
     start = time.time()
-    proc = psutil.Process()
+    #proc = psutil.Process()
     d("Start time: {}".format(start))
-    d(f'Started PID: {proc.pid} Using affinity: {proc.cpu_affinity()}')
+    #d(f'Started PID: {proc.pid} Using affinity: {proc.cpu_affinity()}')
     with open(input,'rb') as file:#, open(output, 'w') as out:
         mem()
         
         # Stream JSON file
-        js = bigjson.load(file)
-        for (key, value) in js.iteritems():
-            thread_id = key
+        js = json.load(file)
+        thread_id = [a for a in js][0]
+        #for (key, value) in js.iteritems():
+        #    thread_id = key
         
+        # Check if db is a fuuka db
+        try:
+            if not js.get(thread_id, None): return js
+            if not js.get(thread_id, None).get('op', None):
+                return js
+        except:
+            return js
         # Migrating OP
-        op_post = js[thread_id]['op'].to_python()
+        op_post = js[thread_id]['op']
         p,i,s = process_post(op_post,int(op_post['num']),0,"")
         op_post = p
         try:
@@ -118,11 +127,12 @@ def pjson(input,output):
         images = 0
         resto = op_post['no']
         semantic_url = ""
+        posts = {}
         if 'posts' in js[thread_id]:
             posts = js[thread_id]['posts']
-            for (key, value) in posts.iteritems():
+            for (key, value) in posts.items():
                 replies += 1
-                post = value.to_python()
+                post = value
                 
                 p,i,s = process_post(post,key,resto,semantic_url)
                 post = p
@@ -134,7 +144,7 @@ def pjson(input,output):
             # OP patching
             op_post['replies'] = replies
             sem_url = re.sub(r"[^a-zA-Z0-9]+", '-', semantic_url).lower().lstrip('-')
-            op_post['semantic_url'] = sem_url if sem_url else re.sub(r"[^a-zA-Z0-9]+", '-', op_post['comment']).lower()[:50].lstrip('-')
+            op_post['semantic_url'] = sem_url if sem_url else re.sub(r"[^a-zA-Z0-9]+", '-', op_post.get('comment','')).lower()[:50].lstrip('-')
             op_post['images'] = images
             op_post['bumplimit'] = 0
             op_post['imagelimit'] = 0
@@ -145,7 +155,7 @@ def pjson(input,output):
         # Output to file
         if output:
             with open(output, 'w') as out:
-                json.dump(db,out,sort_keys=True,indent=2)
+                json.dump(db,out, indent=2)
         del posts
         del ls
         del op_post
@@ -213,6 +223,7 @@ def process_post(post, key, resto, semantic_url):
     post.pop('uniqueIps', None)
     post.pop('extra_data', None)
     post.pop('thread_num', None)
+    post.pop('safe_media_hash', None)
     if post.get('comment_sanitized', None) == post.get('', None): post.pop('comment_sanitized', None)
     empty_keys = [k for k,v in post.items() if not v]
     for k in empty_keys:
@@ -235,14 +246,14 @@ def bget(jdb,s):
         pass
     return None
 
-def mem():
-    """Get the current memory usage for this program"""
-    if debug: print(f"{process.memory_info().rss/1000000} MB") 
+#def mem():
+#    """Get the current memory usage for this program"""
+#    if debug: print(f"{process.memory_info().rss/1000000} MB") 
 
-def pid_info():
-    print(f"Program PID: {os.getpid()}")
-    for proc in psutil.process_iter():
-        if "python" in proc.name(): print(proc)
+#def pid_info():
+#    print(f"Program PID: {os.getpid()}")
+#    for proc in psutil.process_iter():
+#        if "python" in proc.name(): print(proc)
 
 #if __name__ == '__main__':
 #    main()

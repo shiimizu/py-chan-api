@@ -9,6 +9,7 @@ import bigjson
 
 
 class Json():
+    db: dict
     def load(self, db):
         if isinstance(db,str):
             if os.path.exists(db):
@@ -24,14 +25,16 @@ class Json():
                     raise Exception(e)
         else:
             return db
+
+    def __str__(self):
+        return json.dumps(self.__dict__, default=lambda o: o.__dict__, indent=2)
     @property
     def json(self):
         """Return data structure as json object dictionary.
         Useful for manually getting keys"""
-        return self.__dict__
+
+        return json.loads(self.__str__())
     
-    def __str__(self):
-        return json.dumps(self.__dict__, default=lambda o: o.__dict__, sort_keys=True,indent=2)
 
 class BigJson(Json):
     def load(self, db):
@@ -99,6 +102,7 @@ class ArchivedThread(Json):
 class FourChan(Json):
     def __new__(self, db):
         db = self.load(self, db)
+        self.db = db
         if isinstance(db, dict):
             # Single Thread
             if db.get('posts', None): return Thread(db)
