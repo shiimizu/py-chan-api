@@ -1,14 +1,13 @@
 # py-chan-api
 
 ### Objective:
-- **Unify:** Convert other imageboards to the 4chan api in JSON format
-- **Wrapper:** Parse the JSON to programming-language-specific data structures
-- **Extra:** Ability to download JSON + media ⚠️
+- **Unification:** Have one library to use for multiple imageboards. Convert them to 4chan compliant API specifications.
+- **Wrapper:** Parse the JSON to programming-language-specific data structures (in this case, to Python).
 
 ### Why?
 I have a lot of threads archived in a plaintext list of links for educational purposes. With the advent of archiving sites cracking down, I realized that it won't always be here and I'd need to save it locally. Later on, it reminded me that not just these need to be archived but everything else on the internet that I value.
 
-### Supports:
+### API Documentation
 |   Feature                     |                        Source                             |
 |-------------------------------|-----------------------------------------------------------|
 |   ✔️ Single thread             |`a.4cdn.org/{board}/thread/{threadnumber}.json`            |
@@ -17,18 +16,10 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 |   ✔️ Board catalog             |`a.4cdn.org/{board}/catalog.json`                          |
 |   ✔️ Thread list                 |`a.4cdn.org/{board}/threads.json`                          |
 |  ✔️ Archived threads            |`a.4cdn.org/{board}/archive.json`                          |
-|  ⚠️ HTTPS                       |On by default in `urllib3`                                 |
-|  ⚠️ Rate limiting               |`x` requests allowed in `n` seconds                        |
-|  ⚠️ `If-Modified-Since`         |`req.headers['last-modified']`                             |
-|  ⚠️ In-place thread updating |`req.headers['last-modified']; difflib`                    |
-
-|**Extra Imageboards** | Compatibility |
-|-------------------------------|----------|
-|✔️ [FFuuka](https://archive.4plebs.org/_/articles/credits/#archives)|  `Thread`, `Post` |
-|❔ warosu|
-|❔ yuki.la |
-
-### API Documentation
+|  🚧 HTTPS                       |On by default in `urllib3`                                 |
+|  🚧 Rate limiting               |`x` requests allowed in `n` seconds                        |
+|  🚧 `If-Modified-Since`         |`req.headers['last-modified']`                             |
+|  🚧 In-place thread updating |`req.headers['last-modified']; difflib`                    |
 
 #### 4chan
 * [`4chan.org` API (with examples)](https://github.com/catamphetamine/captchan/blob/master/docs/4chan.org.md)
@@ -38,6 +29,13 @@ I have a lot of threads archived in a plaintext list of links for educational pu
 * [`github doc`](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
 * [`readthedocs`](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
 * [`rest api`](https://4plebs.texh/foolfuuka)
+
+### Extra Support
+|**Extra Imageboards** | Compatibility |
+|-------------------------------|----------|
+|✔️ [FFuuka](https://archive.4plebs.org/_/articles/credits/#archives)|  `Thread`, `Post` |
+|❔ warosu|
+|❔ yuki.la |
 
 ---
 
