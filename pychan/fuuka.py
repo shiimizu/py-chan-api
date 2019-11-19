@@ -97,7 +97,7 @@ def pjson(input,output):
     d("Start time: {}".format(start))
     #d(f'Started PID: {proc.pid} Using affinity: {proc.cpu_affinity()}')
     with open(input,'rb') as file:#, open(output, 'w') as out:
-        mem()
+        #mem()
         
         # Stream JSON file
         js = json.load(file)
@@ -159,7 +159,7 @@ def pjson(input,output):
         del posts
         del ls
         del op_post
-        mem()
+        #mem()
         d('Finished. PID: {}'.format(os.getpid()))
         d("--- {} ms ---".format(float((time.time() - start)*1000)))
         return db
