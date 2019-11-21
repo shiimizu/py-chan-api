@@ -110,8 +110,7 @@ docs/_build/
 target/
 
 # Tests
-/tests
-*test_*
+*_test*
 
 just
 /temp*

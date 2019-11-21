@@ -37,14 +37,14 @@ def test_fourchan_unknown_list_3():
 #@pytest.mark.xfail(raises=Exception)
 def test_fourchan_parse_fuuka_thread():
     with pytest.raises(Exception):
-        thread = pychan.FourChan("test_json/desu_thread.json")
+        thread = pychan.FourChan("tests/desu_thread.json")
     
 def test_fuuka_thread_conversion():
-    fuukaThread = pychan.Fuuka("test_json/desu_thread.json")
+    fuukaThread = pychan.Fuuka("tests/desu_thread.json")
     assert isinstance(fuukaThread, pychan.fourchan.Thread)
     
 def test_fuuka_thread_to_json_conversion():
-    fuukaThread = pychan.Fuuka("test_json/desu_thread.json")
+    fuukaThread = pychan.Fuuka("tests/desu_thread.json")
     assert isinstance(fuukaThread.json, dict)
     
 def main():
