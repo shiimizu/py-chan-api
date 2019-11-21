@@ -1,30 +1,28 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import os
 import sys
 import json
 import time
 import re
 import copy
-#import psutil
 import gc
 import time
 import multiprocessing as mp
 import concurrent.futures
-import bigjson
 from .fourchan import FourChan
 
-# Reference
-#   db = {"posts": [{"bumplimit": 0, "ext": ".jpg"},{"bumplimit": 1, "ext": ".png"}]}
-#   print(json.dumps(db,sort_keys=True,indent=4))
-
-#process = psutil.Process(os.getpid())
-debug = False # {True: "For useful logging", False: "To sit back and relax"}
+debugMode = False
 
 ls = ['desu_thread.json','nyafuu_thread.json','desu_onepiece_thread.json']
 outs = ['out1.json','out2.json','out3.json','']
 
+#class Fuuka():
+#    name = "Fuuka"
+#    def __new__(self, db):
+#        return Chan(sequential(db, 'out11.json'))
 def Fuuka(db, parallel = None):
-    """Currently only supports an inputted file due to how bigjson works. It would have to be implemented. See line 106"""
+    """Using a method here instead of Class because"""
     if not db: raise Exception("Input cannot be empty")
     if isinstance(db, dict):
         inputs = list(db.keys())
@@ -40,10 +38,6 @@ def Fuuka(db, parallel = None):
         return FourChan(multiprocess(inputs, outputs))
     else:
         return FourChan(sequential(inputs, outputs))
-#class Fuuka():
-#    name = "Fuuka"
-#    def __new__(self, db):
-#        return Chan(sequential(db, 'out11.json'))
 
 def main():
     
@@ -57,7 +51,6 @@ def main():
     #    pjson('desu_thread.json','out.json')
     
     measure(sequential, 'desu_thread.json', 'out.json')
-    #measure(multiprocess)
 
 def measure(method, input=ls[0], output=outs[0]):
     start = time.time()
@@ -66,10 +59,9 @@ def measure(method, input=ls[0], output=outs[0]):
     else:
         method()
     gc.collect()
-    #print("--- [END] Total: {} ms ---\n".format(float((time.time() - start)*1000)))
-    
+
 def sequential(inputs, outputs):
-    if debug:
+    if debugMode:
         if not os.path.exists(input): return print(f"[NON-EXISTENT]: {input}\n")
         print("[SEQUENTIAL]\n")
     ls = []
@@ -79,7 +71,7 @@ def sequential(inputs, outputs):
 
 def multiprocess(inputs, outputs):
     ls = []
-    if debug:
+    if debugMode:
         if len(ls) != len(outs): return print(f"[ERROR]: List of inputs must have the same size as list of outputs.\n")
         print("[MULTIPROCESSING]\n")
     with concurrent.futures.ProcessPoolExecutor() as executor:
@@ -93,13 +85,8 @@ def multiprocess(inputs, outputs):
 def pjson(input,output):
     """Process to JSON"""
     start = time.time()
-    #proc = psutil.Process()
-    d("Start time: {}".format(start))
-    #d(f'Started PID: {proc.pid} Using affinity: {proc.cpu_affinity()}')
+    debug("Start time: {}".format(start))
     with open(input,'rb') as file:#, open(output, 'w') as out:
-        #mem()
-        
-        # Stream JSON file
         js = json.load(file)
         thread_id = [a for a in js][0]
         #for (key, value) in js.iteritems():
@@ -112,6 +99,7 @@ def pjson(input,output):
                 return js
         except:
             return js
+
         # Migrating OP
         op_post = js[thread_id]['op']
         p,i,s = process_post(op_post,int(op_post['num']),0,"")
@@ -160,8 +148,8 @@ def pjson(input,output):
         del ls
         del op_post
         #mem()
-        d('Finished. PID: {}'.format(os.getpid()))
-        d("--- {} ms ---".format(float((time.time() - start)*1000)))
+        debug('Finished. PID: {}'.format(os.getpid()))
+        debug("--- {} ms ---".format(float((time.time() - start)*1000)))
         return db
 
 def process_post(post, key, resto, semantic_url):
@@ -230,9 +218,9 @@ def process_post(post, key, resto, semantic_url):
         del post[k]
     return [post, images,semantic_url]
 
-def d(s):
+def debug(s):
     """Debug printer"""
-    if debug: print(s)
+    if debugMode: print(s)
 
 def pj(jdb):
     """Dumps pretty JSON"""
@@ -245,15 +233,6 @@ def bget(jdb,s):
     except:
         pass
     return None
-
-#def mem():
-#    """Get the current memory usage for this program"""
-#    if debug: print(f"{process.memory_info().rss/1000000} MB") 
-
-#def pid_info():
-#    print(f"Program PID: {os.getpid()}")
-#    for proc in psutil.process_iter():
-#        if "python" in proc.name(): print(proc)
 
 #if __name__ == '__main__':
 #    main()
