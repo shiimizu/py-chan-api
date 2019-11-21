@@ -29,13 +29,12 @@ setup(
         'Operating System :: POSIX',
         'Operating System :: Unix',
         'Operating System :: MacOS',
-        'Natural Language :: English',
-        'Programming Language :: Python :: 3.7',
+        'Natural Language :: English'
     ],
-    keywords='4chan api imageboard',
+    keywords='4chan api imageboard wrapper',
     packages=find_packages(exclude=['tests', 'test_json']),
-    python_requires='>=3.7, <4',
-    install_requires=['bigjson'],
+    python_requires='>=3.0, <4',
+    #install_requires=['bigjson'],
     package_data={
         '': ['README.md','LICENSE'],
     },
