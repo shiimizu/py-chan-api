@@ -10,9 +10,9 @@
 * [Alternate](https://github.com/catamphetamine/imageboard/blob/master/docs/engines/4chan.md)
 
 #### FFuuka
-* [Official](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
+* [Official (Github)](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
+* [Official (Website)](https://4plebs.tech/foolfuuka)
 * [Readthedocs](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
-* [REST API](https://4plebs.texh/foolfuuka)
 
 ---
 
