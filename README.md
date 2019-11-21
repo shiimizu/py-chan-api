@@ -39,15 +39,14 @@
 ---
 
 ### Installation
-```bash
-pip install py-chan-api             # NOTE: Only Python 3.7+
+```console
+$ pip install py-chan-api             # NOTE: Only Python 3.7+
 
 # Or with virtualenv
-pip install virtualenv              # Install virtualenv if you haven't already
-virtualenv venv                     # Create a virtualenv
-source venv/bin/activate            # Activate it
-pip install -r requirements.txt     # Install required modules
-pip install py-chan-api             # Install py-chan-api
+$ pip install virtualenv              # Install virtualenv if you haven't already
+$ virtualenv venv                     # Create a virtualenv
+$ source venv/bin/activate            # Activate it
+$ pip install py-chan-api             # Install py-chan-api
 ```
 
 ### Usage
@@ -108,9 +107,9 @@ print(fthread1.posts[1])      # Note: fthread1 is the same as fthread and fuukaT
 
 ### Tests
 Tests are done with [`pytest`](https://pytest.org/en/latest/).
-```
-pip install -U pytest pytest-xdist
-pytest tests.py -v
+```console
+$ pip install -U pytest pytest-xdist
+$ pytest tests.py -v
 ```
 
 ### Support
