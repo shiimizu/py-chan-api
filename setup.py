@@ -2,6 +2,7 @@
 from setuptools import setup, find_packages
 from os import path
 from io import open
+from pychan import __version__ as current_version
 
 here = path.abspath(path.dirname(__file__))
 
@@ -10,7 +11,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='py-chan-api',
-    version='0.1.2',
+    version=current_version,
     description='A Python wrapper for the 4chan API and other imageboards',
     long_description=long_description,
     long_description_content_type='text/markdown',
