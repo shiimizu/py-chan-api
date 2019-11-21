@@ -5,6 +5,17 @@
 - **Wrapper:** Parse the JSON to programming-language-specific data structures (in this case, to Python).
 
 ### API Documentation
+#### 4chan
+* [Official](https://github.com/4chan/4chan-API)
+* [Alternate](https://github.com/catamphetamine/imageboard/blob/master/docs/engines/4chan.md)
+
+#### FFuuka
+* [Official](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
+* [Readthedocs](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
+* [REST API](https://4plebs.texh/foolfuuka)
+
+---
+
 |   Feature                     |                        Source                             |
 |-------------------------------|-----------------------------------------------------------|
 |   ✔️ Single thread             |`a.4cdn.org/{board}/thread/{threadnumber}.json`            |
@@ -18,14 +29,7 @@
 |  🚧 `If-Modified-Since`         |`req.headers['last-modified']`                             |
 |  🚧 In-place thread updating |`req.headers['last-modified']; difflib`                    |
 
-#### 4chan
-* [`4chan.org` API (with examples)](https://github.com/catamphetamine/captchan/blob/master/docs/4chan.org.md)
-* [`4chan.org` API (brief official docs)](https://github.com/4chan/4chan-API)
 
-#### FFuuka
-* [`github doc`](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
-* [`readthedocs`](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
-* [`rest api`](https://4plebs.texh/foolfuuka)
 
 ### Extra Support
 |**Extra Imageboards** | Compatibility |
