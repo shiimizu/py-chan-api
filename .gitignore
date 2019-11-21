@@ -115,3 +115,4 @@ target/
 just
 /temp*
 main.py
+*idea*
