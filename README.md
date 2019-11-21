@@ -29,8 +29,6 @@
 |  🚧 `If-Modified-Since`         |`req.headers['last-modified']`                             |
 |  🚧 In-place thread updating |`req.headers['last-modified']; difflib`                    |
 
-
-
 ### Extra Support
 |**Extra Imageboards** | Compatibility |
 |-------------------------------|----------|
@@ -51,6 +49,7 @@ source venv/bin/activate            # Activate it
 pip install -r requirements.txt     # Install required modules
 pip install py-chan-api             # Install py-chan-api
 ```
+
 ### Usage
 
 ```python
@@ -87,7 +86,9 @@ jdb = thread.posts[0].json              # Convert the Post object to a dictionar
 for k,v in jdb.items():                 # Iterate through the key/value pairs
     print(k, v)
 ```
+
 ### Converting
+
 ```python
 import pychan
 fuukaThread = pychan.Fuuka("desu_thread.json")    # Specify the imageboard implementation
@@ -103,6 +104,13 @@ fthread = pychan.FourChan("out1.json")
 
 # We can also just use the outputed value from before
 print(fthread1.posts[1])      # Note: fthread1 is the same as fthread and fuukaThread
+```
+
+### Tests
+Tests are done with [`pytest`](https://pytest.org/en/latest/).
+```
+pip install -U pytest pytest-xdist
+pytest tests.py -v
 ```
 
 ### Support
