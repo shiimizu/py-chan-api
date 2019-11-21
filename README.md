@@ -9,7 +9,7 @@
 * [Official](https://github.com/4chan/4chan-API)
 * [Alternate](https://github.com/catamphetamine/imageboard/blob/master/docs/engines/4chan.md)
 
-#### FFuuka
+#### FFuuka based Imageboards
 * [Official (Github)](https://github.com/FoolCode/FoolFuuka-docs/blob/master/code_guide/documentation/api.rst)
 * [Official (Website)](https://4plebs.tech/foolfuuka)
 * [Readthedocs](https://foolfuuka.readthedocs.io/en/latest/code_guide/documentation/api.html)
@@ -33,8 +33,8 @@
 |**Extra Imageboards** | Compatibility |
 |-------------------------------|----------|
 |✔️ [FFuuka](https://archive.4plebs.org/_/articles/credits/#archives)|  `Thread`, `Post` |
-|❔ warosu|
-|❔ yuki.la |
+|❔ [warosu](https://warosu.org)|
+|❔ [yuki.la](https://yuki.la) |
 
 ---
 
@@ -117,9 +117,9 @@ Pull requests are welcome.
 Feel free to ping shiimizu @ this [Matrix](https://matrix.to/#/#bibanon-chat:matrix.org) server.
 
 
-### ⚠️ Polling (archiving)
+### ⚠️ Archiving (polling)
 - Archiving capabilities are beyond the scope of this project.
-- Please see ➡️
+- Please see:
   - [`eve`](https://github.com/bibanon/eve)
   - [`hayden`](https://github.com/bbepis/Hayden)
   - [`basc-archiver`](https://github.com/bibanon/BASC-Archiver)
