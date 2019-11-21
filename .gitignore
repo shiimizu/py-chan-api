@@ -111,8 +111,8 @@ target/
 
 # Tests
 /tests
-*test*
+*test_*
 
-/run.py
+just
 /temp*
 main.py

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from __future__ import absolute_import
 from __future__ import print_function
 import os
@@ -6,7 +8,6 @@ import json
 import time
 import ast
 import bigjson
-
 
 class Json():
     db: dict
@@ -27,15 +28,15 @@ class Json():
             return db
 
     def __str__(self):
+        """Flatmap this object to primitive values and then to a string"""
         return json.dumps(self.__dict__, default=lambda o: o.__dict__, indent=2)
+    
     @property
     def json(self):
-        """Return data structure as json object dictionary.
-        Useful for manually getting keys"""
-
+        """Return data structure as json dictionary.
+        Useful for manually accessing keys/values"""
         return json.loads(self.__str__())
     
-
 class BigJson(Json):
     def load(self, db):
         if isinstance(db,str):
@@ -95,6 +96,7 @@ class ThreadList(Json):
     def __init__(self, db):
         self.pages = len(self.load(db))-1
         self.page = [Page(p) for p in self.load(db)]
+
 class ArchivedThread(Json):
     def __new__(self, db):
         return self.load(self,db)
@@ -116,6 +118,7 @@ class FourChan(Json):
             else: raise Exception("Unkown input type")
             
         elif isinstance(db, list):
+            if len(db) <= 0: raise Exception("List is empty!")
             # Board Catalog
             if db[0].get('page', None): return Catalog(db)
             
