@@ -114,7 +114,7 @@ $ pytest tests.py -v
 
 ### Support
 Pull requests are welcome.
-Feel free to ping shiimizu @ this [Matrix](https://matrix.to/#/#bibanon-chat:matrix.org) server.
+Feel free to ping shiimizu @ [this](https://matrix.to/#/#bibanon-chat:matrix.org) Matrix server.
 
 
 ### ⚠️ Archiving (polling)
