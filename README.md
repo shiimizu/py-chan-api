@@ -114,13 +114,14 @@ $ pytest tests.py -v
 
 ### Support
 Pull requests are welcome.
-Feel free to ping shiimizu @ [this](https://matrix.to/#/#bibanon-chat:matrix.org) Matrix server.
+Feel free to ping soberx @ [this](https://matrix.to/#/#bibanon-chat:matrix.org) Matrix server.
 
 
 ### ⚠️ Archiving (polling)
 - Archiving capabilities are beyond the scope of this project.
 - Please see:
-  - [`eve`](https://github.com/bibanon/eve)
+  - [`ena`](https://github.com/shiimizu/ena)
   - [`hayden`](https://github.com/bbepis/Hayden)
+  - [`eve`](https://github.com/bibanon/eve)
   - [`basc-archiver`](https://github.com/bibanon/BASC-Archiver)
   - [`go-4chan-api`](https://github.com/moshee/go-4chan-api)
